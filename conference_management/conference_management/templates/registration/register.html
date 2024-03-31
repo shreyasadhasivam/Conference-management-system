@@ -1,0 +1,94 @@
+<!-- register.html -->
+{% extends 'layout.html' %}
+{% block title %}Create New Account{% endblock %}
+{% block content %}
+<div class="container mt-5">
+    <h2>Register</h2>
+    <form method="post">
+        {% csrf_token %}
+        {{ form.non_field_errors }}
+
+        <!-- Login Information -->
+        <h3>Login Information</h3>
+        <div class="form-group">
+            <label for="username">Username:</label>
+            {{ form.username }}
+            {{ form.username.errors }}
+        </div>
+        
+        <div class="form-group">
+            <label for="email">Email:</label>
+            {{ form.email }}
+            {{ form.email.errors }}
+        </div>
+        <div class="form-group">
+            <label for="password1">Password:</label>
+            {{ form.password1 }}
+            {{ form.password1.errors }}
+        </div>
+        <div class="form-group">
+            <label for="password2">Confirm Password:</label>
+            {{ form.password2 }}
+            {{ form.password2.errors }}
+        </div>
+
+        <!-- Personal Information -->
+        <h3>Personal Information</h3>
+        <div class="form-group">
+            <label for="first_name">First Name:</label>
+            {{ form.first_name }}
+            {{ form.first_name.errors }}
+        </div>
+        <div class="form-group">
+            <label for="middle_initial">Middle Initial:</label>
+            {{ form.middle_initial }}
+            {{ form.middle_initial.errors }}
+        </div>
+        <div class="form-group">
+            <label for="last_name">Last Name:</label>
+            {{ form.last_name }}
+            {{ form.last_name.errors }}
+        </div>
+        <div class="form-group">
+            <label for="role">Role:</label>
+            {{ form.role }}
+            {{ form.role.errors }}
+        </div>
+        <div class="form-group">
+            <label for="country_region">Country/Region:</label>
+            {{ form.country_region }}
+            {{ form.country_region.errors }}
+        </div>
+
+        <!-- External Profile Information -->
+        <h3>External Profile Information</h3>
+        <div class="form-group">
+            <label for="google_scholar_id">Google Scholar Id:</label>
+            {{ form.google_scholar_id }}
+            {{ form.google_scholar_id.errors }}
+        </div>
+        <div class="form-group">
+            <label for="semantic_scholar_id">Semantic Scholar Id:</label>
+            {{ form.semantic_scholar_id }}
+            {{ form.semantic_scholar_id.errors }}
+        </div>
+        <div class="form-group">
+            <label for="dblp_id">DBLP Id:</label>
+            {{ form.dblp_id }}
+            {{ form.dblp_id.errors }}
+        </div>
+        <div class="form-group">
+            <label for="orcid_id">ORCID Id:</label>
+            {{ form.orcid_id }}
+            {{ form.orcid_id.errors }}
+        </div>
+        <div class="form-group">
+            <label for="open_review_id">OpenReview Id:</label>
+            {{ form.open_review_id }}
+            {{ form.open_review_id.errors }}
+        </div>
+
+        <button type="submit" class="btn btn-primary">Register</button>
+    </form>
+</div>
+{% endblock %}

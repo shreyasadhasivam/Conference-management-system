@@ -15,6 +15,9 @@ import os
 # Build paths inside the project like this: BASE_DIR / 'subdir'.
 BASE_DIR = Path(__file__).resolve().parent.parent
 
+LOGIN_REDIRECT_URL = '/dashboard'
+
+LOGOUT_REDIRECT_URL = '/'
 
 # Quick-start development settings - unsuitable for production
 # See https://docs.djangoproject.com/en/5.0/howto/deployment/checklist/
@@ -37,6 +40,7 @@ INSTALLED_APPS = [
     'django.contrib.sessions',
     'django.contrib.messages',
     'django.contrib.staticfiles',
+    'conference_management',
     'registrations',
     'notificationsapp',
     'scheduling',
@@ -59,7 +63,13 @@ ROOT_URLCONF = 'conference_management.urls'
 TEMPLATES = [
     {
         'BACKEND': 'django.template.backends.django.DjangoTemplates',
-        'DIRS': [os.path.join('templates/')],
+        'DIRS': [
+                os.path.join('templates/'), 
+                os.path.join(BASE_DIR, 'conference_management', 'templates'),
+                os.path.join(BASE_DIR, 'conference_management/registration', 'templates'),
+                os.path.join(BASE_DIR, 'conference_management/dashboard', 'templates'),
+                
+            ],
         'APP_DIRS': True,
         'OPTIONS': {
             'context_processors': [
@@ -71,6 +81,7 @@ TEMPLATES = [
         },
     },
 ]
+
 
 WSGI_APPLICATION = 'conference_management.wsgi.application'
 
@@ -121,6 +132,10 @@ USE_TZ = True
 # https://docs.djangoproject.com/en/5.0/howto/static-files/
 
 STATIC_URL = 'static/'
+
+STATICFILES_DIRS = [
+    os.path.join(BASE_DIR, 'conference_management', 'static'),
+]
 
 # Default primary key field type
 # https://docs.djangoproject.com/en/5.0/ref/settings/#default-auto-field
