@@ -8,7 +8,7 @@ def submit_paper(request):
         if form.is_valid():
             paper = form.save(commit=False)
             paper.author = request.user
-            paper.status = 'not_reviewed'  # Set status to 'not_reviewed' by default
+            paper.status = 'not_reviewed'  
             paper.save()
             return redirect('dashboard')
     else:
@@ -17,4 +17,4 @@ def submit_paper(request):
 
 def paper_details(request, paper_id):
     paper = get_object_or_404(Paper, id=paper_id)
-    return render(request, 'submissions/paper_details.html', {'paper': paper})
+    return render(request, 'paper_details.html', {'paper': paper})

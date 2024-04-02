@@ -9,7 +9,6 @@ from .forms import UserRegistrationForm, LoginForm
 from .models import UserProfile
 from submissions.models import Paper
 
-
 def register(request):
     if request.method == 'POST':
         form = UserRegistrationForm(request.POST)
@@ -94,16 +93,11 @@ def dashboard(request):
     else:
         return render(request, 'unauthorized.html')
 
-#username=abc    
-#password=idW7VuR3kyi4UES
-
-
 def home(request):
     return render(request, 'home.html')
 
 def contact(request):
     return render(request, 'contact.html')
-
 
 def about(request):
     return render(request, 'about.html')
