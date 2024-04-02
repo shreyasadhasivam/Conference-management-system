@@ -1,7 +1,28 @@
-
 {% extends 'layout.html' %}
 {% block title %}Author Dashboard{% endblock %}
 {% block content %}
-    TODO: add author specific content
+    <div class="row">
+        <div class="col-md-12">
+            <h2>Author Dashboard</h2>
+            <a href="{% url 'submit_paper' %}" class="btn btn-primary">Submit Paper</a>
+        </div>
+    </div>
+    <div class="row mt-4">
+        <div class="col-md-12">
+            <h3>Submitted Papers</h3>
+            <div class="row">
+                {% for paper in submitted_papers %}
+                    <div class="col-md-4 mb-4">
+                        <div class="card">
+                            <div class="card-body">
+                                <h5 class="card-title">{{ paper.title }}</h5>
+                                <p class="card-text">Status: {{ paper.get_status_display }}</p>
+                                <a href="{% url 'paper_details' paper.id %}" class="btn btn-primary">View Details</a>
+                            </div>
+                        </div>
+                    </div>
+                {% endfor %}
+            </div>
+        </div>
+    </div>
 {% endblock %}
-

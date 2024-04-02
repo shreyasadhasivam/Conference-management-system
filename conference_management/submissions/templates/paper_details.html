@@ -1,0 +1,19 @@
+{% extends 'layout.html' %}
+{% block title %}Paper Details{% endblock %}
+{% block content %}
+    <div class="row">
+        <div class="col-md-12">
+            <h2>Paper Details</h2>
+            <div class="card">
+                <div class="card-body">
+                    <h5 class="card-title">{{ paper.title }}</h5>
+                    <p class="card-text">Status: {{ paper.get_status_display }}</p>
+                    <p class="card-text">Author: {{ paper.author }}</p>
+                    <p class="card-text">Submission Date: {{ paper.submission_date }}</p>
+                    <p class="card-text">Track: {{ paper.track }}</p>
+                    <!-- Add more details as needed -->
+                </div>
+            </div>
+        </div>
+    </div>
+{% endblock %}

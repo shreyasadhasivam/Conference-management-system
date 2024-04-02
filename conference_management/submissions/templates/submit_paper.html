@@ -1,0 +1,14 @@
+{% extends 'layout.html' %}
+{% block title %}Submit Paper{% endblock %}
+{% block content %}
+    <div class="row">
+        <div class="col-md-12">
+            <h2>Submit Paper</h2>
+            <form method="post">
+                {% csrf_token %}
+                {{ form.as_p }}
+                <button type="submit" class="btn btn-primary">Submit</button>
+            </form>
+        </div>
+    </div>
+{% endblock %}
