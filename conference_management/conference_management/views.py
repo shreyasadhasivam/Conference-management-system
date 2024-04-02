@@ -7,7 +7,7 @@ from django.contrib.admin.views.decorators import staff_member_required
 from django.contrib.auth.models import Group
 from .forms import UserRegistrationForm, LoginForm
 from .models import UserProfile
-
+from submissions.models import Paper
 
 def register(request):
     if request.method == 'POST':
@@ -80,22 +80,24 @@ def dashboard(request):
     if role == 'chair':
         return render(request, 'dashboard/dashboard_chair.html', {'user_profile': user_profile})
     elif role == 'author':
-        return render(request, 'dashboard/dashboard_author.html', {'user_profile': user_profile})
+        submitted_papers = Paper.objects.filter(author=request.user)
+        return render(request, 'dashboard/dashboard_author.html', 
+                {
+                    'user_profile': user_profile, 
+                    'submitted_papers': submitted_papers
+                }
+            )
+    
     elif role == 'reviewer':
         return render(request, 'dashboard/dashboard_reviewer.html', {'user_profile': user_profile})
     else:
         return render(request, 'unauthorized.html')
-
-#username=abc    
-#password=idW7VuR3kyi4UES
-
 
 def home(request):
     return render(request, 'home.html')
 
 def contact(request):
     return render(request, 'contact.html')
-
 
 def about(request):
     return render(request, 'about.html')

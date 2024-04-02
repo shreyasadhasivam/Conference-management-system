@@ -14,6 +14,7 @@ from pathlib import Path
 import os
 # Build paths inside the project like this: BASE_DIR / 'subdir'.
 BASE_DIR = Path(__file__).resolve().parent.parent
+PARENT_DIR = os.path.dirname(BASE_DIR)
 
 LOGIN_REDIRECT_URL = '/dashboard'
 
@@ -64,7 +65,8 @@ TEMPLATES = [
     {
         'BACKEND': 'django.template.backends.django.DjangoTemplates',
         'DIRS': [
-                os.path.join('templates/'), 
+                os.path.join(BASE_DIR, 'templates'),
+                os.path.join(PARENT_DIR, 'submissions', 'templates'),
                 os.path.join(BASE_DIR, 'conference_management', 'templates'),
                 os.path.join(BASE_DIR, 'conference_management/registration', 'templates'),
                 os.path.join(BASE_DIR, 'conference_management/dashboard', 'templates'),
