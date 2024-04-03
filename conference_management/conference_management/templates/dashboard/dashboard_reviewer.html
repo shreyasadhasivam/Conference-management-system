@@ -1,7 +1,55 @@
-
 {% extends 'layout.html' %}
 {% block title %}Reviewer Dashboard{% endblock %}
 {% block content %}
-    TODO: add reviewer specific content
-{% endblock %}
+<div class="container">
+    <h2>Reviewer Dashboard</h2>
+    <h3>Assigned Papers</h3>
+    <table class="table">
+        <thead>
+            <tr>
+                <th>Title</th>
+                <th>Status</th>
+                <th>Author</th>
+                <th>Actions</th>
+            </tr>
+        </thead>
+        <tbody>
+            {% for paper in assigned_papers %}
+            <tr>
+                <td>{{ paper.title }}</td>
+                <td>{{ paper.status }}</td>
+                <td>{{ paper.author }}</td>
+                <td>
+                    <a href="{% url 'reviewer_paper_details' paper.id %}" class="btn btn-info">View Details</a>
+                    <a href="{% url 'review_paper' paper.id %}" class="btn btn-primary">Review</a>
+                </td>
+            </tr>
+            {% endfor %}
+        </tbody>
+    </table>
 
+    <h3>Reviewed Papers</h3>
+    <table class="table">
+        <thead>
+            <tr>
+                <th>Title</th>
+                <th>Status</th>
+                <th>Author</th>
+                <th>Actions</th>
+            </tr>
+        </thead>
+        <tbody>
+            {% for paper in reviewed_papers %}
+            <tr>
+                <td>{{ paper.title }}</td>
+                <td>{{ paper.status }}</td>
+                <td>{{ paper.author }}</td>
+                <td>
+                    <a href="{% url 'reviewer_paper_details' paper.id %}" class="btn btn-info">View Details</a>
+                </td>
+            </tr>
+            {% endfor %}
+        </tbody>
+    </table>
+</div>
+{% endblock %}

@@ -1,0 +1,11 @@
+{% extends 'layout.html' %}
+{% block title %}Paper Detail{% endblock %}
+{% block content %}
+<div class="container">
+    <h2>{{ paper.title }}</h2>
+    <p><strong>Abstract:</strong> {{ paper.abstract }}</p>
+    <p><strong>Author:</strong> {{ paper.author }}</p>
+    <p><strong>Track:</strong> {{ paper.track }}</p>
+    <p><strong>Status:</strong> {{ paper.get_status_display }}</p>
+</div>
+{% endblock %}

@@ -1,0 +1,12 @@
+{% extends 'layout.html' %}
+{% block title %}Assign Reviewers{% endblock %}
+{% block content %}
+<div class="container">
+    <h2>Assign Reviewers for "{{ paper.title }}"</h2>
+    <form method="post">
+        {% csrf_token %}
+        {{ form.as_p }}
+        <button type="submit" class="btn btn-primary">Assign Reviewers</button>
+    </form>
+</div>
+{% endblock %}

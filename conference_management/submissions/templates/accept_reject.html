@@ -1,0 +1,30 @@
+{% extends 'layout.html' %}
+{% block title %}Main Page{% endblock %}
+{% block content %}
+<div class="container">
+    <h2>Reviewed Papers</h2>
+    <table class="table">
+        <thead>
+            <tr>
+                <th>Title</th>
+                <th>Status</th>
+                <th>Author</th>
+                <th>Action</th>
+            </tr>
+        </thead>
+        <tbody>
+            {% for paper in reviewed_papers %}
+            <tr>
+                <td>{{ paper.title }}</td>
+                <td>{{ paper.get_status_display }}</td>
+                <td>{{ paper.author }}</td>
+                <td>
+                    <a href="{% url 'accept_reject_paper' paper.id %}" class="btn btn-info">Accept/Reject</a>
+                    <a href="{% url 'view_comments' paper.id %}" class="btn btn-secondary">View Comments</a>
+                </td>
+            </tr>
+            {% endfor %}
+        </tbody>
+    </table>
+</div>
+{% endblock %}

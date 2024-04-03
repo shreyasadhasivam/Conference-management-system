@@ -24,13 +24,12 @@ def register(request):
                 orcid_id=form.cleaned_data['orcid_id'],
                 open_review_id=form.cleaned_data['open_review_id']
             )
-            # Assign the user to appropriate groups based on role
             group_name = form.cleaned_data['role']
             group, created = Group.objects.get_or_create(name=group_name)
             user.groups.add(group)
             
             login(request, user)
-            return redirect('dashboard')  # Redirect to the dashboard page
+            return redirect('dashboard')  
     else:
         form = UserRegistrationForm()
     return render(request, 'registration/register.html', {'form': form})
@@ -51,24 +50,6 @@ def user_login(request):
         form = LoginForm()
     return render(request, 'registration/login.html', {'form': form})
 
-
-def user_login(request):
-    if request.method == 'POST':
-        form = LoginForm(request.POST)
-        if form.is_valid():
-            username = form.cleaned_data['username']
-            password = form.cleaned_data['password']
-            user = authenticate(request, username=username, password=password)
-            if user is not None:
-                login(request, user)
-                return redirect('dashboard')  
-            else:
-                return render(request, '/registration/login.html', {'form': form, 'error': 'Invalid username or password.'})
-    else:
-        form = LoginForm()
-    return render(request, 'registration/login.html', {'form': form})
-
-
 def user_logout(request):
     logout(request)
     return redirect('home')
@@ -78,7 +59,13 @@ def dashboard(request):
     user_profile = UserProfile.objects.get(user=request.user)
     role = user_profile.role
     if role == 'chair':
-        return render(request, 'dashboard/dashboard_chair.html', {'user_profile': user_profile})
+        papers = Paper.objects.all()
+        return render(request, 'dashboard/dashboard_chair.html', 
+                {
+                    'papers': papers, 
+                    'user_profile': user_profile
+                }
+            )
     elif role == 'author':
         submitted_papers = Paper.objects.filter(author=request.user)
         return render(request, 'dashboard/dashboard_author.html', 
@@ -89,7 +76,19 @@ def dashboard(request):
             )
     
     elif role == 'reviewer':
-        return render(request, 'dashboard/dashboard_reviewer.html', {'user_profile': user_profile})
+        reviewer_profile = request.user.userprofile
+        assigned_papers = Paper.objects.filter(reviewer1=reviewer_profile.user, status='not_reviewed') | \
+                      Paper.objects.filter(reviewer2=reviewer_profile.user, status='not_reviewed')
+        reviewed_papers = Paper.objects.filter(reviewer1=reviewer_profile.user, status='reviewed') | \
+                      Paper.objects.filter(reviewer2=reviewer_profile.user, status='reviewed')
+        return render(request, 'dashboard/dashboard_reviewer.html', 
+                    {
+                        'assigned_papers': assigned_papers, 
+                        'user_profile': user_profile,
+                        'reviewed_papers': reviewed_papers
+                    }
+                )
+    
     else:
         return render(request, 'unauthorized.html')
 

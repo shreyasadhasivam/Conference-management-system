@@ -1,6 +1,10 @@
-
 {% extends 'layout.html' %}
-{% block title %}Administrator Dashboard{% endblock %}
+{% block title %}Chair Dashboard{% endblock %}
 {% block content %}
-   TODO: add chair specific content
+<div class="container">
+    <h2>Chair Dashboard</h2>
+    <a class="btn btn-primary" href="{% url 'chair_view_papers'%}">View Papers</a>
+    <a class="btn btn-primary" href="{% url 'assign_reviewers' %}">Assign Reviewers</a>
+    <a class="btn btn-primary" href="{% url 'accept_reject' %}">Accept/Reject Papers</a>
+</div>
 {% endblock %}

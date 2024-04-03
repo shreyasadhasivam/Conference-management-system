@@ -27,6 +27,8 @@ class Paper(models.Model):
     reviewer1 = models.ForeignKey(User, on_delete=models.SET_NULL, related_name='reviewer1', null=True, blank=True)
     reviewer2 = models.ForeignKey(User, on_delete=models.SET_NULL, related_name='reviewer2', null=True, blank=True)
     assigned = models.BooleanField(default=False)
+    review1_status = models.BooleanField(default=False)
+    review2_status = models.BooleanField(default=False)
     def __str__(self):
         return self.title
 

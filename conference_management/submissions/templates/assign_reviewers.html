@@ -1,0 +1,29 @@
+{% extends 'layout.html' %}
+{% block title %}Assign Reviewers{% endblock %}
+{% block content %}
+<div class="container">
+    <h2>Assign Reviewers</h2>
+    <table class="table">
+        <thead>
+            <tr>
+                <th>Title</th>
+                <th>Status</th>
+                <th>Author</th>
+                <th>Action</th>
+            </tr>
+        </thead>
+        <tbody>
+            {% for paper in papers %}
+            <tr>
+                <td>{{ paper.title }}</td>
+                <td>{{ paper.get_status_display }}</td>
+                <td>{{ paper.author }}</td>
+                <td>
+                    <a href="{% url 'assign_reviewers_to_paper' paper.id %}" class="btn btn-info">Assign Reviewers</a>
+                </td>
+            </tr>
+            {% endfor %}
+        </tbody>
+    </table>
+</div>
+{% endblock %}

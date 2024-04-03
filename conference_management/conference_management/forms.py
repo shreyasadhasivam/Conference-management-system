@@ -5,7 +5,7 @@ from django.contrib.auth.models import User
 
 class UserRegistrationForm(UserCreationForm):
     first_name = forms.CharField(max_length=30)
-    middle_initial = forms.CharField(max_length=1)
+    middle_initial = forms.CharField(max_length=1, required=False)
     last_name = forms.CharField(max_length=30)
     role = forms.ChoiceField(choices=[('chair', 'Chair'), ('author', 'Author'), ('reviewer', 'Reviewer')])
     country_region = forms.CharField(max_length=100)
