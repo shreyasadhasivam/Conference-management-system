@@ -46,7 +46,8 @@ html {
 .row {
     width: 100%;
     position: relative;
-    background: linear-gradient(180deg, #5ea8dd, #5ca4db 32.5%, #238cd8 82%);
+    background: rgb(34,172,195);
+    background: linear-gradient(0deg, rgba(34,172,195,1) 9%, rgba(253,149,45,1) 86%);
     border: 1px solid rgba(0, 0, 0, 0.2);
     box-sizing: border-box;
     height: 1024px;
