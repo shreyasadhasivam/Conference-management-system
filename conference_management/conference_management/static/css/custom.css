@@ -19,15 +19,27 @@ html {
   padding: 1em;
   box-sizing: border-box;
 }
+
 :root {
   /* fonts */
-  --font-lexend-zetta: "Lexend Zetta";
-  --font-holtwood-one-sc: "Holtwood One SC";
-  --font-futura: 'Futura';
-  --font-gravitas-one: "Gravitas One";
-  --font-bebas-neue: "Bebas Neue";
-  --font-dela-gothic-one: "Dela Gothic One";
+  --font-american-typewriter: "American Typewriter";
+  --font-alumni-sans-inline-one: "Alumni Sans Inline One";
+  --font-aclonica: Aclonica;
 
+  /* font sizes */
+  --font-size-17xl: 36px;
+  --font-size-29xl: 48px;
+  --font-size-45xl: 64px;
+  --font-size-21xl: 40px;
+  --font-size-13xl: 32px;
+
+  /* Colors */
+  --color-black: #000;
+  --color-steelblue: #3a6c9a;
+  --color-darkturquoise: #1ab7cc;
+
+  /* border radiuses */
+  --br-xl: 20px;
 }
 
 
