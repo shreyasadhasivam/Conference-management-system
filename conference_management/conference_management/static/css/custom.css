@@ -43,24 +43,28 @@ html {
 }
 
 
-.row{
+.row {
     width: 100%;
     position: relative;
-    background: linear-gradient(180deg,#5ea8dd,#5ca4db 32.5%,#238cd8  82%);
+    background: linear-gradient(180deg, #5ea8dd, #5ca4db 32.5%, #238cd8 82%);
     filter: blur(20px);
-    border:  1px solid rgba(0,0,0,0.2);
+    border: 1px solid rgba(0, 0, 0, 0.2);
     box-sizing: border-box;
-    height : 1024px;
+    height: 1024px;
     overflow: hidden;
-    }
+}
 
- .row-text{
+.row-text {
     position: absolute;
     top: 50%;
     left: 50%;
     transform: translate(-50%, -50%);
     z-index: 1;
- }   
+    color: white; /* Text color */
+    font-size: 24px; /* Text font size */
+    font-weight: bold; /* Text font weight */
+    text-align: center; /* Text alignment */
+} 
     
     
 .h1{
