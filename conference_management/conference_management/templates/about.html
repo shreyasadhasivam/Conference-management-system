@@ -26,13 +26,21 @@
 </div>
 
 <script>
-    $(document).ready(function() {
-        // Function to perform fly-in animation
-        $('#animatedElement').animate({
-            left: '0%', // Fly in from left
-            opacity: 1 // Fade in
-        }, 1000); // Adjust duration as needed
-    });
-</script>
+        $(document).ready(function() {
+            // Function to perform fly-in animation when page is scrolled
+            $(window).scroll(function() {
+                var windowHeight = $(window).height();
+                var windowScrollTop = $(window).scrollTop();
+                var animatedElementOffset = $('#animatedElement').offset().top;
+
+                if (windowScrollTop + windowHeight > animatedElementOffset) {
+                    $('#animatedElement').animate({
+                        left: '0%', // Fly in from left
+                        opacity: 1 // Fade in
+                    }, 1000); // Adjust duration as needed
+                }
+            });
+        });
+    </script>
 
 {% endblock %}
