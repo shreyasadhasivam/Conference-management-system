@@ -5,8 +5,35 @@
 {% block content %}
 <div class="row">
     <div class="col-md-6">
+        <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
         <h1>About Us</h1>
-        <p>This is the about page content.</p>
+        <p>This conference management system is a software platform designed to streamline and automate the organization, planning, and execution of conferences and management of research papers. It typically encompasses various features and functionalities to assist the users.
+<br>
+            Key features  include:
+            <div id="animatedElement1">
+            <ol>
+            <li>Event Planning and Scheduling: Enables organizers to plan event schedules, sessions, and activities, and manage venues, speakers, and resources.</li>
+            <li>Registration and Ticketing: Facilitates user registration, ticketing, and  processing of their submitted papers,also offering various ticket types and discounts.</li>
+            <li>Abstract Submission and Review: Allows authors to submit abstracts, papers, or proposals online, and provides a system for peer review and selection of presentations.</li>
+            <li>Communication and Collaboration: Provides tools for communication between authors, users, sponsors, and chairs, such as email notifications, messaging, and discussion forums.</li>
+            <li>Attendee Management: Manages author , chair and other users' profiles.</li>
+            <li>Paper Management: Tracks uploading,reviewing, acceptance and rejection of papers.Also repository for earlier papers.</li>
+            <li>On-site Management: Offers log-in and log-out features for both chairs and authors.
+            <li>Analytics and Reporting: Provides insights into attendee demographics, paper popularity, feedback, and other key performance metrics for evaluation and improvement.</li>
+        </ol>
+        </div>
+            Overall, this conference paper management system helps streamline the complexities of organizing and managing papers, enhancing the experience for both chairs and authors.</p>
     </div>
 </div>
+
+<script>
+    $(document).ready(function() {
+        // Function to perform fly-in animation
+        $('#animatedElement').animate({
+            left: '0%', // Fly in from left
+            opacity: 1 // Fade in
+        }, 1000); // Adjust duration as needed
+    });
+</script>
+
 {% endblock %}
