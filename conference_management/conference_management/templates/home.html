@@ -3,12 +3,21 @@
 {% block title %}Home - Manipal CMT{% endblock %}
 
 {% block content %}
+<script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+<div id="animatedElement">MIT MANIPAL</div>
+<script>
+    $(document).ready(function() {
+        // Function to perform fade-in animation
+        $('#animatedElement').fadeIn(1000); // Adjust duration as needed
+    });
+</script>
 <div class="row">
     <div class="col-md-6">
         <h1>Welcome to Manipal CMT</h1>
         <p>This conference management system is a software platform designed to streamline and automate the organization, planning, and execution of conferences, symposiums, workshops, or any large-scale events. It typically encompasses various features and functionalities to assist event organizers, attendees, speakers, and sponsors throughout the entire event lifecycle.
             Overall, this conference management system helps streamline the complexities of organizing and managing conferences, enhancing the experience for both organizers and participants while improving efficiency and effectiveness in event execution.
         </p>
+        <iframe src="https://lottie.host/embed/54fb3f25-f1d4-43f6-b761-a27f9bf98302/gh5IcjfvfL.json"></iframe>
     </div>
 </div>
 {% endblock %}
