@@ -1,0 +1,12 @@
+{% extends 'layout.html' %}
+{% block title %}View Comments{% endblock %}
+{% block content %}
+<div class="container">
+    <h2>Comments for {{ paper.title }}</h2>
+    <ul>
+        {% for comment in comments %}
+        <li>{{ comment.comment }}</li>
+        {% endfor %}
+    </ul>
+</div>
+{% endblock %}

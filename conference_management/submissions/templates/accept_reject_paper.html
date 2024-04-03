@@ -1,0 +1,12 @@
+{% extends 'layout.html' %}
+{% block title %}Accept/Reject Paper{% endblock %}
+{% block content %}
+<div class="container">
+    <h2>Accept/Reject Paper</h2>
+    <form method="post">
+        {% csrf_token %}
+        {{ form.as_p }}
+        <button type="submit" class="btn btn-primary">Submit</button>
+    </form>
+</div>
+{% endblock %}

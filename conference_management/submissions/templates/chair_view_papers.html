@@ -1,0 +1,31 @@
+{% extends 'layout.html' %}
+{% block title %}View Papers{% endblock %}
+{% block content %}
+<div class="container">
+    <h2>List of Papers</h2>
+    <table class="table">
+        <thead>
+            <tr>
+                <th>Title</th>
+                <th>Status</th>
+                <th>Author</th>
+                <th>Track</th>
+                <th>Actions</th>
+            </tr>
+        </thead>
+        <tbody>
+            {% for paper in papers %}
+            <tr>
+                <td>{{ paper.title }}</td>
+                <td>{{ paper.get_status_display }}</td>
+                <td>{{ paper.author }}</td>
+                <td>{{ paper.track }}</td>
+                <td>
+                    <a href="{% url 'chair_paper_details' paper.id %}" class="btn btn-info">View Details</a>
+                </td>
+            </tr>
+            {% endfor %}
+        </tbody>
+    </table>
+</div>
+{% endblock %}

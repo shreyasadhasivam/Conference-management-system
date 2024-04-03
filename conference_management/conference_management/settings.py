@@ -42,11 +42,8 @@ INSTALLED_APPS = [
     'django.contrib.messages',
     'django.contrib.staticfiles',
     'conference_management',
-    'registrations',
-    'notificationsapp',
     'scheduling',
     'submissions',
-    'adminapp',
 ]
 
 MIDDLEWARE = [

@@ -4,9 +4,13 @@
     <div class="row">
         <div class="col-md-12">
             <h2>Submit Paper</h2>
-            <form method="post">
+            <form method="post" enctype="multipart/form-data">
                 {% csrf_token %}
                 {{ form.as_p }}
+                <div class="form-group">
+                    <label for="id_file">Upload File</label>
+                    <input type="file" name="file" class="form-control-file" id="id_file">
+                </div>
                 <button type="submit" class="btn btn-primary">Submit</button>
             </form>
         </div>
