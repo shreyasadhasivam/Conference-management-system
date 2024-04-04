@@ -31,10 +31,10 @@
             $(window).scroll(function() {
                 var windowHeight = $(window).height();
                 var windowScrollTop = $(window).scrollTop();
-                var animatedElementOffset = $('#animatedElement').offset().top;
+                var animatedElementOffset = $('#animatedElement1').offset().top;
 
                 if (windowScrollTop + windowHeight > animatedElementOffset) {
-                    $('#animatedElement').animate({
+                    $('#animatedElement1').animate({
                         left: '0%', // Fly in from left
                         opacity: 1 // Fade in
                     }, 1000); // Adjust duration as needed
